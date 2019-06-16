@@ -39,7 +39,7 @@ connection.connect( function(err) {
 
 
 /* Routes */
-//Get
+//GET
 app.get("/api/incomes", (request, response) =>{
     try {
         connection.query('SELECT * FROM `income`', function (error, results, fields) {
@@ -51,7 +51,7 @@ app.get("/api/incomes", (request, response) =>{
         response.status(500).send(error);
     }
 })
-//Get:id
+//GET:id
 app.get("/api/incomes/:id", (request, response) =>{
     try {
         let {id} = request.params;
@@ -64,7 +64,7 @@ app.get("/api/incomes/:id", (request, response) =>{
     }
 })
 
-//Post
+//POST
 app.post("/api/incomes", (request, response) =>{
     try {
         const income = request.body;
@@ -72,11 +72,33 @@ app.post("/api/incomes", (request, response) =>{
             if (error) throw error;
             return response.send({results});
         });
-        
+
     } catch (error) {
         response.status(500).send(error);
     }
 })
+
+//PUT
+app.put("/api/incomes/:id", (request, response) =>{
+    try {
+        const income = request.body;
+        let {id} = request.params;
+        // UPDATE `income` SET `status` = '1' WHERE `income`.`id` = 1
+        connection.query("UPDATE `income` SET `quantity` = ?, `date` = ?, `status` = ? WHERE `income`.`id` = ?", 
+            [   income.quantity, 
+                income.date,
+                income.status, 
+                id
+            ], function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
+//DELETE
 
 
 
