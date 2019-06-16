@@ -39,6 +39,7 @@ connection.connect( function(err) {
 
 
 /* Routes */
+//Get
 app.get("/api/incomes", (request, response) =>{
     try {
         connection.query('SELECT * FROM `income`', function (error, results, fields) {
@@ -50,7 +51,7 @@ app.get("/api/incomes", (request, response) =>{
         response.status(500).send(error);
     }
 })
-
+//Get:id
 app.get("/api/incomes/:id", (request, response) =>{
     try {
         let {id} = request.params;
@@ -63,7 +64,7 @@ app.get("/api/incomes/:id", (request, response) =>{
     }
 })
 
-
+//Post
 app.post("/api/incomes", (request, response) =>{
     try {
         const income = request.body;
