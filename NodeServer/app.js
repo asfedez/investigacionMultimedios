@@ -66,12 +66,11 @@ app.get("/api/incomes/:id", (request, response) =>{
 
 app.post("/api/incomes", (request, response) =>{
     try {
-        let {id} = request.params;
-        connection.query('SELECT * FROM income where id=?',id ,function (error, results, fields) {
+        const income = request.body;
+        connection.query('INSERT INTO income SET ?', income ,function (error, results, fields) {
             if (error) throw error;
             return response.send({results});
         });
-
         
     } catch (error) {
         response.status(500).send(error);
