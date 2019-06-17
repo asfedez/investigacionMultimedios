@@ -83,7 +83,6 @@ app.put("/api/incomes/:id", (request, response) =>{
     try {
         const income = request.body;
         let {id} = request.params;
-        // UPDATE `income` SET `status` = '1' WHERE `income`.`id` = 1
         connection.query("UPDATE `income` SET `quantity` = ?, `date` = ?, `status` = ? WHERE `income`.`id` = ?", 
             [   income.quantity, 
                 income.date,
@@ -99,6 +98,18 @@ app.put("/api/incomes/:id", (request, response) =>{
 })
 
 //DELETE
+app.delete("/api/incomes/:id", (request, response) =>{
+    try {
+        let {id} = request.params;
+        connection.query('DELETE FROM income WHERE id = ?', id ,function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
 
 
 
