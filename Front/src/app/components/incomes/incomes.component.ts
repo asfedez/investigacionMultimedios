@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MultimedioApiService } from 'src/app/services/multimedio-api.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class IncomesComponent implements OnInit {
     this.incomesList = [];
     this.service.getIncomes().subscribe((data: {}) => {
       console.log(data);
-      this.incomesList = data;
+      this.incomesList = data.results;
     });
   }
 
