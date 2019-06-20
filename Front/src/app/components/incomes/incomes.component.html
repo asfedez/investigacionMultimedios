@@ -18,7 +18,7 @@
             <td>{{income.date}}</td>
             <td>{{income.quantity}}</td>
             <td>
-              <button class="ui green button">Modificar</button>
+              <button routerLink="/incomes/update/{{income.id}}" class="ui green button">Modificar</button>
               <button class="ui red button">Eliminar</button>
             </td>
           </tr>
@@ -27,8 +27,7 @@
         <tfoot class="full-width">
           <tr>
             <th colspan="4">
-              <button routerLink="/addIncome"> Boton </button>
-              <div click id="test" class="ui right floated small primary labeled icon button"><i class="user icon"></i> Añadir usuario </div>
+              <div routerLink="/incomes/add"  click id="test" class="ui right floated small primary labeled icon button"><i class="user icon"></i> Añadir Ingreso </div>
             </th>
           </tr>
         </tfoot>

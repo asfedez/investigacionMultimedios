@@ -6,6 +6,9 @@ import { IncomesComponent } from './components/incomes/incomes.component'
 import { SavingsComponent } from './components/savings/savings.component'
 import { TotalComponent } from './components/total/total.component'
 
+import { IncomesAddComponent } from './components/incomes-add/incomes-add.component'
+import { IncomesUpdateComponent } from './components/incomes-update/incomes-update.component'
+
 const routes: Routes = [
   {
     path:'incomes', 
@@ -31,6 +34,14 @@ const routes: Routes = [
   {
     path: 'addIncome', 
     component: ExpensesComponent
+  },
+  {
+    path:'incomes/add',
+    component: IncomesAddComponent
+  },
+  {
+    path: 'incomes/update/:id',
+    component: IncomesUpdateComponent
   }
 ];
 
