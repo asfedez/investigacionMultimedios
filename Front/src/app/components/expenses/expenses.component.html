@@ -1,1 +1,36 @@
-<H1>Hola</H1>
+<br>
+<div class="ui container">
+
+
+
+    <table class="ui compact celled table">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Monto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let income of incomesList">
+            <tr>
+                <td>Descripcicon desde BD</td>
+                <td>{{income.date}}</td>
+                <td>{{income.quantity}}</td>
+                <td>
+                    <button routerLink="/incomes/update/{{income.id}}" class="ui green button">Modificar</button>
+                    <button class="ui red button">Eliminar</button>
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot class="full-width">
+            <tr>
+                <th colspan="4">
+                    <div routerLink="/incomes/add" click id="test" class="ui right floated small primary labeled icon button"><i class="user icon"></i> Añadir Ingreso </div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
