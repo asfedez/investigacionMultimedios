@@ -39,6 +39,8 @@ connection.connect( function(err) {
 
 
 /* Routes */
+
+/////// Crud Incomes
 //GET
 app.get("/api/incomes", (request, response) =>{
     try {
@@ -110,6 +112,77 @@ app.delete("/api/incomes/:id", (request, response) =>{
     }
 })
 
+
+/////Crud expenses
+app.get("/api/expenses", (request, response) =>{
+    try {
+        connection.query('SELECT * FROM `expense`', function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+//GET:id
+app.get("/api/expenses/:id", (request, response) =>{
+    try {
+        let {id} = request.params;
+        connection.query('SELECT * FROM expense where id=?',id ,function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
+//POST
+app.post("/api/expenses", (request, response) =>{
+    try {
+        const expense = request.body;
+        connection.query('INSERT INTO expense SET ?', expense ,function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
+//PUT
+app.put("/api/expenses/:id", (request, response) =>{
+    try {
+        const expense = request.body;
+        let {id} = request.params;
+        connection.query("UPDATE `expense` SET `amoung` = ?, `date` = ?, `description` = ? WHERE `expense`.`id` = ?", 
+            [   expense.amoung, 
+                expense.date,
+                expense.description, 
+                id
+            ], function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
+//DELETE
+app.delete("/api/expenses/:id", (request, response) =>{
+    try {
+        let {id} = request.params;
+        connection.query('DELETE FROM expense WHERE id = ?', id ,function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
 
 
 
