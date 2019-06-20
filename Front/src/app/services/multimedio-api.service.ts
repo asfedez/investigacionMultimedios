@@ -46,6 +46,15 @@ export class MultimedioApiService {
   }
 
   //agregar
+  addIncome (income): Observable<any> {
+    console.log(JSON.stringify(income));
+    return this.http.post<any>(this.url + 'incomes', JSON.stringify(income), this.httpOptions).pipe(
+      tap((income) => console.log(`added income w/ id=${income.id}`)),
+      catchError(this.handleError)
+    );
+  }
+  
+
   //modificar
   //eliminar
 

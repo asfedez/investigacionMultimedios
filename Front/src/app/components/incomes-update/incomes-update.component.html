@@ -4,15 +4,16 @@
         <form class="ui form">
             <div class="field">
               <label>Descripción</label>
-              <input type="text" name="description" placeholder="Descripción">
+              <input [(ngModel)]="income.description" [ngModelOptions]="{standalone: true}" type="text" placeholder="Descripción">
             </div>
+            <!-- [(ngModel)]="income.date" [ngModelOptions]="{standalone: true}" -->
             <div class="field">
               <label>Fecha</label>
-              <input type="date" name="date" placeholder="Fecha">
+              <input [(ngModel)]="income.date" [ngModelOptions]="{standalone: true}" type="date" value="">
             </div>
             <div class="field ui right labeled input">
                 <label for="amount" class="ui label">$</label>
-                <input type="text" placeholder="Cantidad" id="amount">
+                <input [(ngModel)]="income.amoung" [ngModelOptions]="{standalone: true}" type="text" placeholder="Cantidad" id="amount">
                 <div class="ui basic label">.00</div>
             </div>
             <div id="test" class="ui right floated small primary labeled icon button"><i class="user icon"></i> Añadir </div>

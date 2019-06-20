@@ -13,7 +13,8 @@ import { MultimedioApiService } from 'src/app/services/multimedio-api.service';
 export class IncomesUpdateComponent implements OnInit {
 
 
-  incomesList:any = []
+  income:any ={}
+  date:any = new Date() 
 
   constructor(public service:MultimedioApiService, private route: ActivatedRoute, private router: Router) { }
 
@@ -22,12 +23,18 @@ export class IncomesUpdateComponent implements OnInit {
     this.getIncome(this.route.snapshot.params['id']);
   }
 
+  
+
+  getDate(date){
+    return date.getFullYear()+"-0"+(date.getMonth()+1)+"-"+date.getDate();
+  }
+
 
   getIncome(id){
-    this.incomesList = [];
+    this.income = {};
     this.service.getIncome(id).subscribe((data) => {
-      console.log(data.results);
-      this.incomesList = data.results;
+      this.income = data.results[0];
+      this.income.date = this.getDate(new Date(data.results[0].date))
     });
   }
 

@@ -31,12 +31,11 @@ export class IncomesComponent implements OnInit {
   }
 
   
-  openModal(){
-    console.log('click');
-    
-    
-  }
   
+
+  getDate(date){
+    return date.getFullYear()+"-0"+(date.getMonth()+1)+"-"+date.getDate();
+  }
  
 
   getIncomes() {
