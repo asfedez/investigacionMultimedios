@@ -19,7 +19,7 @@
             <td>{{income.amoung}}</td>
             <td>
               <button routerLink="/incomes/update/{{income.id}}" class="ui green button">Modificar</button>
-              <button class="ui red button">Eliminar</button>
+              <button (click)="deleteIncome(income.id)" class="ui red button">Eliminar</button>
             </td>
           </tr>
     

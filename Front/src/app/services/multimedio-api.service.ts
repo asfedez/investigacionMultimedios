@@ -56,7 +56,21 @@ export class MultimedioApiService {
   
 
   //modificar
+  updateIncome (income, id): Observable<any> {
+    console.log(JSON.stringify(income));
+    return this.http.put(this.url + 'incomes/' + id, JSON.stringify(income), this.httpOptions).pipe(
+      tap((income) => console.log(`added income w/ id=${id}`)),
+      catchError(this.handleError)
+    );
+  }
+
   //eliminar
+  deleteIncome (id): Observable<any> {
+    return this.http.delete<any>(this.url + 'incomes/' + id, this.httpOptions).pipe(
+      tap(_ => console.log(`deleted income id=${id}`)),
+      catchError(this.handleError)
+    );
+  }
 
 
   // Error handling 

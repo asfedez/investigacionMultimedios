@@ -16,7 +16,10 @@
                 <input [(ngModel)]="income.amoung" [ngModelOptions]="{standalone: true}" type="text" placeholder="Cantidad" id="amount">
                 <div class="ui basic label">.00</div>
             </div>
-            <div id="test" class="ui right floated small primary labeled icon button"><i class="user icon"></i> Añadir </div>
+            <div class="field">
+                <div (click)="updateIncome()" id="test" class="ui right  floated small green labeled icon button"><i class="user icon"></i> Modificar </div>
+            </div>
+            
           </form>
     </div> 
 

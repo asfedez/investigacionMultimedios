@@ -29,7 +29,7 @@ export class IncomesAddComponent implements OnInit {
       this.router.navigate(['/incomes']);
     }, (err) => {
       console.log(err);
-    });;
+    });
   }
 
 

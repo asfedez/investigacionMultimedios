@@ -22,19 +22,14 @@ export class IncomesComponent implements OnInit {
   constructor(public service:MultimedioApiService ) { }
 
   ngOnInit() {
-
-    this.getIncomes();
-
-    
-    
-    
+    this.getIncomes();   
   }
 
   
   
 
   getDate(date){
-    return date.getFullYear()+"-0"+(date.getMonth()+1)+"-"+date.getDate();
+    return date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear();
   }
  
 
@@ -43,7 +38,25 @@ export class IncomesComponent implements OnInit {
     this.service.getIncomes().subscribe((data) => {
       console.log(data.results);
       this.incomesList = data.results;
+
+      for (let index = 0; index < this.incomesList.length; index++) {
+
+        console.log(this.incomesList[index].date);
+        
+        this.incomesList[index].date = this.getDate(new Date(this.incomesList[index].date))
+        
+      }
     });
+    
+    
+  }
+
+  deleteIncome(id){
+    this.service.deleteIncome(id).subscribe((data)  => {
+        this.getIncomes()
+        }, (err) => {
+          console.log(err);
+        });
   }
 
  
