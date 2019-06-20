@@ -83,10 +83,10 @@ app.put("/api/incomes/:id", (request, response) =>{
     try {
         const income = request.body;
         let {id} = request.params;
-        connection.query("UPDATE `income` SET `quantity` = ?, `date` = ?, `status` = ? WHERE `income`.`id` = ?", 
-            [   income.quantity, 
+        connection.query("UPDATE `income` SET `amoung` = ?, `date` = ?, `description` = ? WHERE `income`.`id` = ?", 
+            [   income.amoung, 
                 income.date,
-                income.status, 
+                income.description, 
                 id
             ], function (error, results, fields) {
             if (error) throw error;

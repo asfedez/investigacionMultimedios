@@ -14,9 +14,9 @@
         </thead>
         <tbody *ngFor="let income of incomesList">
           <tr>
-            <td>Descripcicon desde BD</td>
+            <td>{{income.description}}</td>
             <td>{{income.date}}</td>
-            <td>{{income.quantity}}</td>
+            <td>{{income.amoung}}</td>
             <td>
               <button routerLink="/incomes/update/{{income.id}}" class="ui green button">Modificar</button>
               <button class="ui red button">Eliminar</button>

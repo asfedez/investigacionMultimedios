@@ -38,6 +38,13 @@ export class MultimedioApiService {
 
 
   //getIncomes por id
+    getIncome(id): Observable<any> {
+
+    
+    return this.http.get(this.url + 'incomes/'+id).pipe(
+      map(this.extractData)); 
+  }
+
   //agregar
   //modificar
   //eliminar

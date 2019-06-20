@@ -6,7 +6,7 @@ import { MultimedioApiService } from 'src/app/services/multimedio-api.service';
 //import * as $ from "jQuery";
 
 
-declare var $:any;
+//declare var $:any;
 
 @Component({
   selector: 'app-incomes',
