@@ -11,7 +11,9 @@ import { SavingsComponent } from './components/savings/savings.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TotalComponent } from './components/total/total.component';
 import { IncomesAddComponent } from './components/incomes-add/incomes-add.component';
-import { IncomesUpdateComponent } from './components/incomes-update/incomes-update.component'
+import { IncomesUpdateComponent } from './components/incomes-update/incomes-update.component';
+import { ExpensesAddComponent } from './components/expenses-add/expenses-add.component';
+import { ExpensesUpdateComponent } from './components/expenses-update/expenses-update.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { IncomesUpdateComponent } from './components/incomes-update/incomes-upda
     SavingsComponent,
     TotalComponent,
     IncomesAddComponent,
-    IncomesUpdateComponent
+    IncomesUpdateComponent,
+    ExpensesAddComponent,
+    ExpensesUpdateComponent
   ],
   imports: [
     BrowserModule,

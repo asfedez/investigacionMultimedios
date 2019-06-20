@@ -8,6 +8,8 @@ import { TotalComponent } from './components/total/total.component'
 
 import { IncomesAddComponent } from './components/incomes-add/incomes-add.component'
 import { IncomesUpdateComponent } from './components/incomes-update/incomes-update.component'
+import{ExpensesAddComponent} from './components/expenses-add/expenses-add.component'
+import{ExpensesUpdateComponent} from './components/expenses-update/expenses-update.component'
 
 const routes: Routes = [
   {
@@ -42,7 +44,17 @@ const routes: Routes = [
   {
     path: 'incomes/update/:id',
     component: IncomesUpdateComponent
+  },
+  {
+    path:'expenses/add',
+    component: ExpensesAddComponent
+  },
+  {
+    path: 'expenses/update/:id',
+    component: ExpensesUpdateComponent
+
   }
+
 ];
 
 @NgModule({
