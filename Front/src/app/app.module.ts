@@ -7,7 +7,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { IncomesComponent } from './components/incomes/incomes.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { SavingsComponent } from './components/savings/savings.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { TotalComponent } from './components/total/total.component'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http'
     NavigationComponent,
     IncomesComponent,
     ExpensesComponent,
-    SavingsComponent
+    SavingsComponent,
+    TotalComponent
   ],
   imports: [
     BrowserModule,

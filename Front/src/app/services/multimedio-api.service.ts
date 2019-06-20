@@ -31,6 +31,7 @@ export class MultimedioApiService {
   //metodo para traer la lista de ingresos
   getIncomes(): Observable<any> {
 
+    
     return this.http.get(this.url + 'incomes').pipe(
       map(this.extractData)); 
   }
