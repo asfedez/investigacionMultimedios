@@ -1,0 +1,26 @@
+<div class="ui container">
+
+  <div class="ui segment">
+      <form class="ui form">
+          <div class="field">
+            <label>Descripción</label>
+            <input [(ngModel)]="saving.description" [ngModelOptions]="{standalone: true}" type="text" placeholder="Descripción">
+          </div>
+          <!-- [(ngModel)]="saving.date" [ngModelOptions]="{standalone: true}" -->
+          <div class="field">
+            <label>Fecha</label>
+            <input [(ngModel)]="saving.date" [ngModelOptions]="{standalone: true}" type="date" value="">
+          </div>
+          <div class="field ui right labeled input">
+              <label for="amount" class="ui label">$</label>
+              <input [(ngModel)]="saving.amoung" [ngModelOptions]="{standalone: true}" type="text" placeholder="Cantidad" id="amount">
+              <div class="ui basic label">.00</div>
+          </div>
+          <div class="field">
+              <div (click)="updateSaving()" id="test" class="ui right  floated small green labeled icon button"><i class="user icon"></i> Modificar </div>
+          </div>
+          
+        </form>
+  </div> 
+
+</div>

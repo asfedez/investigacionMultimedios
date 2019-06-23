@@ -185,6 +185,78 @@ app.delete("/api/expenses/:id", (request, response) =>{
 })
 
 
+/////Crud savings
+app.get("/api/savings", (request, response) =>{
+    try {
+        connection.query('SELECT * FROM `save`', function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+//GET:id
+app.get("/api/savings/:id", (request, response) =>{
+    try {
+        let {id} = request.params;
+        connection.query('SELECT * FROM save where id=?',id ,function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
+//POST
+app.post("/api/savings", (request, response) =>{
+    try {
+        const save = request.body;
+        connection.query('INSERT INTO save SET ?', save ,function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
+//PUT
+app.put("/api/savings/:id", (request, response) =>{
+    try {
+        const save = request.body;
+        let {id} = request.params;
+        connection.query("UPDATE `save` SET `amoung` = ?, `date` = ?, `description` = ? WHERE `save`.`id` = ?", 
+            [   save.amoung, 
+                save.date,
+                save.description, 
+                id
+            ], function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
+//DELETE
+app.delete("/api/savings/:id", (request, response) =>{
+    try {
+        let {id} = request.params;
+        connection.query('DELETE FROM save WHERE id = ?', id ,function (error, results, fields) {
+            if (error) throw error;
+            return response.send({results});
+        });
+    } catch (error) {
+        response.status(500).send(error);
+    }
+})
+
+
 
 app.listen(app.get('port'), ()=>{
     console.log(`Server listening on port ${app.get('port')}`);

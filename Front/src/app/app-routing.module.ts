@@ -10,6 +10,8 @@ import { IncomesAddComponent } from './components/incomes-add/incomes-add.compon
 import { IncomesUpdateComponent } from './components/incomes-update/incomes-update.component'
 import{ExpensesAddComponent} from './components/expenses-add/expenses-add.component'
 import{ExpensesUpdateComponent} from './components/expenses-update/expenses-update.component'
+import { SavingsAddComponent } from './components/savings-add/savings-add.component';
+import { SavingsUpdateComponent } from './components/savings-update/savings-update.component';
 
 const routes: Routes = [
   {
@@ -53,6 +55,14 @@ const routes: Routes = [
     path: 'expenses/update/:id',
     component: ExpensesUpdateComponent
 
+  },
+  {
+    path:'savings/add',
+    component: SavingsAddComponent
+  },
+  {
+    path: 'savings/update/:id',
+    component: SavingsUpdateComponent
   }
 
 ];
